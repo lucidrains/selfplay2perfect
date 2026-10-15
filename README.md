@@ -15,3 +15,15 @@ Implementation of [Play2Perfect](https://play2perfect.github.io/), from Tyler Ga
     url     = {https://arxiv.org/abs/2606.26428}, 
 }
 ```
+
+```bibtex
+@misc{zhang2026alphanistemergentassemblyskills,
+    title     = {AlphaNIST: Emergent Assembly Skills from Binary Task Rewards}, 
+    author    = {Octi Zhang and Iretiayo Akinola and Rosario Scalise and Mateo Guaman Castro and Patrick Yin and Tobias Widmer and Miles Macklin and Chris Amevor and Dylan Turpin and Dirk Van Gelder and Jan Carius and Ankur Handa and Gavriel State and Yunrong Guo and Yashraj Narang},
+    year      = {2026},
+    eprint    = {2610.13354},
+    archivePrefix = {arXiv},
+    primaryClass = {cs.AI},
+    url       = {https://arxiv.org/abs/2610.13354}, 
+}
+```
