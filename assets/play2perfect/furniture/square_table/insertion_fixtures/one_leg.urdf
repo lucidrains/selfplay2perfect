@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<robot name="one_leg_receptive">
+  <link name="receptive">
+    <visual name="slab_v"><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="../square_table_top/square_table_top_canonical.obj" scale="1 1 1"/></geometry></visual>
+    <collision name="bulk_0_c"><origin xyz="0.0 0.07405575 0.0" rpy="0 0 0"/><geometry><box size="0.1625 0.0143895 0.03125"/></geometry></collision>
+    <collision name="bulk_1_c"><origin xyz="0.0 -0.017188249999999995 0.0" rpy="0 0 0"/><geometry><box size="0.1625 0.12812450000000003 0.03125"/></geometry></collision>
+    <collision name="bulk_2_c"><origin xyz="-0.07394600000000001 0.05686750000000001 0.0" rpy="0 0 0"/><geometry><box size="0.014607999999999996 0.01998699999999999 0.03125"/></geometry></collision>
+    <collision name="bulk_3_c"><origin xyz="0.017696 0.05686750000000001 0.0" rpy="0 0 0"/><geometry><box size="0.127108 0.01998699999999999 0.03125"/></geometry></collision>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="../hole_patches/one_leg_coacd/decomp_0.obj" scale="1 1 1"/></geometry></collision>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="../hole_patches/one_leg_coacd/decomp_1.obj" scale="1 1 1"/></geometry></collision>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="../hole_patches/one_leg_coacd/decomp_2.obj" scale="1 1 1"/></geometry></collision>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="../hole_patches/one_leg_coacd/decomp_3.obj" scale="1 1 1"/></geometry></collision>
+    <!-- Inactive holes (3 corners not targeted by the one_leg task). The
+         canonical-mesh visual above shows all 4 hole geometries; these
+         cylinder collisions add only the cylindrical inner-wall approximation
+         to physics. No <visual> tag, so the canonical mesh's carved-out hole
+         remains visible (a solid cylinder visual would have *plugged* the
+         hole). r ≈ inner thread radius (5 mm); length = table thickness
+         (31.25 mm). Active corner is (-0.05625, +0.05687); the other three
+         corners are at the mirrored XY positions. -->
+    <collision name="hole_inact_0_c"><origin xyz="0.05625 0.05687 0" rpy="0 0 0"/><geometry><cylinder radius="0.005" length="0.03125"/></geometry></collision>
+    <collision name="hole_inact_1_c"><origin xyz="-0.05625 -0.05687 0" rpy="0 0 0"/><geometry><cylinder radius="0.005" length="0.03125"/></geometry></collision>
+    <collision name="hole_inact_2_c"><origin xyz="0.05625 -0.05687 0" rpy="0 0 0"/><geometry><cylinder radius="0.005" length="0.03125"/></geometry></collision>
+  </link>
+</robot>

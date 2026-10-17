@@ -1,0 +1,1067 @@
+# Play2Perfect simulation library.
+#
+# Every tunable number and every MJCF template lives in this file.
+# `play` is the base config; `pick` is a sparse override merged over it at load time.
+# Templates use $name placeholders (string.Template).
+#
+play:
+  name: play
+  assets:
+    root: assets/play2perfect
+    cache: .cache/play2perfect
+    registry:
+      robot:
+        path: robot/iiwa14_left_sharpa_adjusted_restricted.urdf
+        kind: urdf
+        prefix: r_
+      table:
+        path: table/table_narrow.urdf
+        kind: urdf
+        prefix: t_
+      pipette_raw:
+        path: tools/pipette_raw.obj
+        kind: mesh
+      pipette_body:
+        path: tools/pipette_body.obj
+        kind: mesh
+      pipette_tube:
+        path: tools/pipette_tube.obj
+        kind: mesh
+      beam0:
+        path: beam/0/beam_3x_0_matchedmass.urdf
+        kind: urdf
+        prefix: b0_
+      beam2:
+        path: beam/2/beam_3x_2_matchedmass.urdf
+        kind: urdf
+        prefix: b2_
+      beam6:
+        path: beam/6/beam_3x_6_matchedmass.urdf
+        kind: urdf
+        prefix: b6_
+  environment:
+    start_modes:
+    - table
+    - paper
+    defaults:
+      nworld: 1
+      seed: 0
+      start_mode: table
+      nconmax: 256
+      njmax: 512
+      resolution:
+      - 480
+      - 360
+      verbose: true
+  simulation:
+    physics_hz: 120.0
+    policy_hz: 60.0
+    integrator: implicit
+    cone: elliptic
+    solver: Newton
+    iterations: 20
+    tolerance: 1.0e-08
+    impratio: 10
+    qvel_clamp: 60.0
+    default_geom:
+      solref:
+      - 0.006
+      - 1.0
+      solimp:
+      - 0.95
+      - 0.99
+      - 0.001
+      friction:
+      - 0.5
+      - 0.005
+      - 0.0001
+  collision:
+    groups:
+      robot: 1
+      object: 2
+      world: 8
+  geometry:
+    cylinder_quat: 0.7071068 0 -0.7071068 0
+    cylinder_quat_y: 0.7071068 0.7071068 0 0
+    identity_quat: 1 0 0 0
+  robot:
+    name: iiwa14_sharpa
+    prefix: r_
+    base_pos:
+    - 0.0
+    - 0.8
+    - 0.0
+    arm:
+      joints:
+      - iiwa14_joint_1
+      - iiwa14_joint_2
+      - iiwa14_joint_3
+      - iiwa14_joint_4
+      - iiwa14_joint_5
+      - iiwa14_joint_6
+      - iiwa14_joint_7
+      stiffness:
+      - 600.0
+      - 600.0
+      - 500.0
+      - 400.0
+      - 200.0
+      - 200.0
+      - 200.0
+      damping:
+      - 27.027026473513512
+      - 27.027026473513512
+      - 24.672186769721083
+      - 22.067474708266914
+      - 9.752538131173853
+      - 9.147747263670984
+      - 9.147747263670984
+      default_q:
+      - -1.571
+      - 1.571
+      - 0.0
+      - 1.376
+      - 0.0
+      - 1.485
+      - 1.308
+    hand:
+      joints:
+      - left_1_thumb_CMC_FE
+      - left_thumb_CMC_AA
+      - left_thumb_MCP_FE
+      - left_thumb_MCP_AA
+      - left_thumb_IP
+      - left_2_index_MCP_FE
+      - left_index_MCP_AA
+      - left_index_PIP
+      - left_index_DIP
+      - left_3_middle_MCP_FE
+      - left_middle_MCP_AA
+      - left_middle_PIP
+      - left_middle_DIP
+      - left_4_ring_MCP_FE
+      - left_ring_MCP_AA
+      - left_ring_PIP
+      - left_ring_DIP
+      - left_5_pinky_CMC
+      - left_pinky_MCP_FE
+      - left_pinky_MCP_AA
+      - left_pinky_PIP
+      - left_pinky_DIP
+      stiffness:
+      - 6.95
+      - 13.2
+      - 4.76
+      - 6.62
+      - 0.9
+      - 4.76
+      - 6.62
+      - 0.9
+      - 0.9
+      - 4.76
+      - 6.62
+      - 0.9
+      - 0.9
+      - 4.76
+      - 6.62
+      - 0.9
+      - 0.9
+      - 1.38
+      - 4.76
+      - 6.62
+      - 0.9
+      - 0.9
+      damping:
+      - 0.28676845
+      - 0.40845109
+      - 0.20394083
+      - 0.24044435
+      - 0.04190723
+      - 0.20859232
+      - 0.24595532
+      - 0.04243185
+      - 0.03504461
+      - 0.2085923
+      - 0.24595532
+      - 0.04243185
+      - 0.03504461
+      - 0.20859226
+      - 0.24595528
+      - 0.04243183
+      - 0.0350446
+      - 0.02782345
+      - 0.20859229
+      - 0.24595528
+      - 0.04243183
+      - 0.0350446
+      armature:
+      - 0.0032
+      - 0.0032
+      - 0.00265
+      - 0.00265
+      - 0.0006
+      - 0.00265
+      - 0.00265
+      - 0.0006
+      - 0.00042
+      - 0.00265
+      - 0.00265
+      - 0.0006
+      - 0.00042
+      - 0.00265
+      - 0.00265
+      - 0.0006
+      - 0.00042
+      - 0.00012
+      - 0.00265
+      - 0.00265
+      - 0.0006
+      - 0.00042
+      frictionloss:
+      - 0.132
+      - 0.132
+      - 0.07456
+      - 0.07456
+      - 0.01276
+      - 0.07456
+      - 0.07456
+      - 0.01276
+      - 0.00378738
+      - 0.07456
+      - 0.07456
+      - 0.01276
+      - 0.00378738
+      - 0.07456
+      - 0.07456
+      - 0.01276
+      - 0.00378738
+      - 0.012
+      - 0.07456
+      - 0.07456
+      - 0.01276
+      - 0.00378738
+    palm:
+      body: r_iiwa14_link_7
+      offset:
+      - 0.0
+      - -0.02
+      - 0.16
+    fingertips:
+      bodies:
+      - r_left_index_DP
+      - r_left_middle_DP
+      - r_left_ring_DP
+      - r_left_thumb_DP
+      - r_left_pinky_DP
+      offset:
+      - 0.02
+      - 0.002
+      - 0.0
+    friction:
+      default: 0.5
+      fingertip: 1.5
+      contact:
+      - 0.005
+      - 0.0001
+  tools:
+    types:
+    - hammer
+    - screwdriver
+    - marker
+    - spatula
+    - eraser
+    - brush
+    extra_types:
+    - pipette
+    default_types:
+    - hammer
+    - screwdriver
+    - marker
+    - spatula
+    - eraser
+    - brush
+    - pipette
+    object_base_size: 0.04
+    min_half: 0.007
+    tiny: 0.0001
+    fixed_size:
+    - 0.141
+    - 0.03025
+    - 0.0271
+    primitives:
+    - handle_box
+    - handle_cyl
+    - head_box
+    - head_cyl
+    - bulb_cyl
+    mesh_slots: 2
+    proxy_slots: 3
+    pool:
+      num_per_type: 100
+      seed: 42
+    keypoint:
+      scale: 1.5
+      corners:
+      - - 1
+        - 1
+        - 1
+      - - 1
+        - 1
+        - -1
+      - - -1
+        - -1
+        - 1
+      - - -1
+        - -1
+        - -1
+      sphere_radius: 0.0075
+      edge_radius: 0.003
+      material: ghost_far
+    densities:
+      low:
+      - 300.0
+      - 600.0
+      high:
+      - 800.0
+      - 2000.0
+    distributions:
+    - type: hammer
+      handle_min:
+      - 0.15
+      - 0.02
+      - 0.015
+      handle_max:
+      - 0.3
+      - 0.04
+      - 0.03
+      head_min:
+      - 0.02
+      - 0.05
+      - 0.02
+      head_max:
+      - 0.06
+      - 0.12
+      - 0.06
+      handle_density:
+      - 300.0
+      - 600.0
+      head_density:
+      - 800.0
+      - 2000.0
+    - type: hammer
+      handle_min:
+      - 0.15
+      - 0.015
+      handle_max:
+      - 0.3
+      - 0.03
+      head_min:
+      - 0.02
+      - 0.05
+      - 0.02
+      head_max:
+      - 0.06
+      - 0.12
+      - 0.06
+      handle_density:
+      - 300.0
+      - 600.0
+      head_density:
+      - 800.0
+      - 2000.0
+    - type: screwdriver
+      handle_min:
+      - 0.07
+      - 0.025
+      - 0.025
+      handle_max:
+      - 0.12
+      - 0.04
+      - 0.04
+      head_min:
+      - 0.07
+      - 0.01
+      - 0.01
+      head_max:
+      - 0.15
+      - 0.015
+      - 0.015
+      handle_density:
+      - 300.0
+      - 600.0
+      head_density:
+      - 800.0
+      - 2000.0
+    - type: screwdriver
+      handle_min:
+      - 0.07
+      - 0.025
+      handle_max:
+      - 0.12
+      - 0.04
+      head_min:
+      - 0.07
+      - 0.01
+      - 0.01
+      head_max:
+      - 0.15
+      - 0.015
+      - 0.015
+      handle_density:
+      - 300.0
+      - 600.0
+      head_density:
+      - 800.0
+      - 2000.0
+    - type: marker
+      handle_min:
+      - 0.075
+      - 0.015
+      handle_max:
+      - 0.15
+      - 0.03
+      head_min:
+      - 0.01
+      - 0.005
+      - 0.005
+      head_max:
+      - 0.03
+      - 0.01
+      - 0.01
+      handle_density:
+      - 300.0
+      - 600.0
+      head_density:
+      - 300.0
+      - 600.0
+    - type: spatula
+      handle_min:
+      - 0.1
+      - 0.0125
+      - 0.006
+      handle_max:
+      - 0.2
+      - 0.025
+      - 0.025
+      head_min:
+      - 0.05
+      - 0.03
+      - 0.01
+      head_max:
+      - 0.15
+      - 0.07
+      - 0.03
+      handle_density:
+      - 300.0
+      - 600.0
+      head_density:
+      - 300.0
+      - 600.0
+    - type: spatula
+      handle_min:
+      - 0.1
+      - 0.0125
+      handle_max:
+      - 0.2
+      - 0.025
+      head_min:
+      - 0.05
+      - 0.03
+      - 0.01
+      head_max:
+      - 0.15
+      - 0.07
+      - 0.03
+      handle_density:
+      - 300.0
+      - 600.0
+      head_density:
+      - 300.0
+      - 600.0
+    - type: eraser
+      handle_min:
+      - 0.07
+      - 0.02
+      - 0.02
+      handle_max:
+      - 0.15
+      - 0.07
+      - 0.07
+      head_min: null
+      head_max: null
+      handle_density:
+      - 300.0
+      - 600.0
+      head_density: null
+    - type: brush
+      handle_min:
+      - 0.05
+      - 0.01
+      - 0.01
+      handle_max:
+      - 0.2
+      - 0.04
+      - 0.03
+      head_min:
+      - 0.05
+      - 0.03
+      - 0.03
+      head_max:
+      - 0.12
+      - 0.05
+      - 0.08
+      handle_density:
+      - 300.0
+      - 600.0
+      head_density:
+      - 300.0
+      - 600.0
+    - type: brush
+      handle_min:
+      - 0.05
+      - 0.01
+      handle_max:
+      - 0.2
+      - 0.03
+      head_min:
+      - 0.05
+      - 0.03
+      - 0.03
+      head_max:
+      - 0.12
+      - 0.05
+      - 0.08
+      handle_density:
+      - 300.0
+      - 600.0
+      head_density:
+      - 300.0
+      - 600.0
+    - type: brush
+      handle_min:
+      - 0.05
+      - 0.01
+      - 0.01
+      handle_max:
+      - 0.2
+      - 0.04
+      - 0.03
+      head_min:
+      - 0.05
+      - 0.05
+      - 0.02
+      head_max:
+      - 0.12
+      - 0.12
+      - 0.04
+      handle_density:
+      - 300.0
+      - 600.0
+      head_density:
+      - 300.0
+      - 600.0
+    - type: brush
+      handle_min:
+      - 0.05
+      - 0.01
+      handle_max:
+      - 0.2
+      - 0.03
+      head_min:
+      - 0.05
+      - 0.05
+      - 0.02
+      head_max:
+      - 0.12
+      - 0.12
+      - 0.04
+      handle_density:
+      - 300.0
+      - 600.0
+      head_density:
+      - 300.0
+      - 600.0
+    pipette:
+      mesh:
+        url: https://raw.githubusercontent.com/autobio-bench/AutoBio/main/autobio/assets/tool/pipette.obj
+        name: pipette
+        unit_scale: 0.1
+        axis_order:
+        - 2
+        - 0
+        - 1
+        scale_range:
+        - 0.92
+        - 1.08
+        proxy_spans:
+        - - 0.0
+          - 0.37
+        - - 0.37
+          - 0.75
+        - - 0.75
+          - 1.0
+        proxy_percentile: 60.0
+        body_part: pipette_body
+        tube_part: pipette_tube
+        parts:
+        - suffix: body
+          rgba:
+          - 0.86
+          - 0.88
+          - 0.92
+          - 1.0
+        - suffix: tube
+          rgba:
+          - 0.94
+          - 0.96
+          - 1.0
+          - 1.0
+      ranges:
+        bulb_len:
+        - 0.025
+        - 0.04
+        bulb_dia:
+        - 0.018
+        - 0.03
+        barrel_len:
+        - 0.09
+        - 0.14
+        barrel_dia:
+        - 0.013
+        - 0.02
+        tip_len:
+        - 0.015
+        - 0.026
+        tip_dia:
+        - 0.005
+        - 0.009
+        density:
+        - 300.0
+        - 600.0
+    colors:
+      handle:
+      - 0.55
+      - 0.27
+      - 0.07
+      - 1.0
+      head:
+      - 0.55
+      - 0.57
+      - 0.6
+      - 1.0
+      bulb:
+      - 0.8
+      - 0.86
+      - 0.94
+      - 1.0
+      ghosts:
+        near:
+        - 0.15
+        - 0.95
+        - 0.45
+        - 1.0
+        far:
+        - 0.15
+        - 0.65
+        - 0.95
+        - 1.0
+      tints:
+        hammer:
+        - 1.0
+        - 0.94
+        - 0.88
+        screwdriver:
+        - 0.98
+        - 0.92
+        - 1.05
+        marker:
+        - 1.08
+        - 0.94
+        - 0.9
+        spatula:
+        - 0.9
+        - 1.02
+        - 0.98
+        eraser:
+        - 1.0
+        - 1.0
+        - 1.12
+        brush:
+        - 1.06
+        - 1.0
+        - 0.9
+        pipette:
+        - 0.95
+        - 1.0
+        - 1.05
+  scene:
+    model: play2perfect_play
+    table:
+      size:
+      - 0.475
+      - 0.4
+      - 0.3
+      z: 0.38
+      object_z_offset: 0.25
+      rgba:
+      - 0.82
+      - 0.56
+      - 0.35
+      - 1.0
+      friction:
+      - 0.5
+      - 0.005
+      - 0.0001
+    camera:
+      pos:
+      - 0.95
+      - -1.25
+      - 1.22
+      lookat:
+      - 0.0
+      - 0.12
+      - 0.66
+      fovy: 42.0
+    goal:
+      type: keypoint
+      volume_min:
+      - -0.35
+      - -0.2
+      - 0.6
+      volume_max:
+      - 0.35
+      - 0.2
+      - 0.95
+  action:
+    moving_average: 0.1
+    dof_speed_scale: 1.5
+  task:
+    type: play
+    reset:
+      position_noise:
+      - 0.1
+      - 0.1
+      - 0.02
+      arm_dof_noise: 0.1
+      finger_dof_noise: 0.1
+      velocity_noise: 0.5
+      table_gap:
+      - 0.004
+      - 0.003
+    success:
+      tolerance: 0.075
+      dwell_steps: 10
+      max_consecutive: 50
+    episode:
+      length: 600
+    termination:
+      object_fall_z: 0.1
+      hand_far: 1.5
+    random_action:
+      smoothing: 0.92
+      noise: 0.08
+      noise_scale: 1.7
+      pull: 1.2
+    reward:
+      terms:
+      - type: lift
+        progress_scale: 20.0
+        bonus: 300.0
+        threshold: 0.15
+        base: 0.05
+        clip:
+        - 0.0
+        - 0.5
+      - type: fingertip_progress
+        scale: 50.0
+        clip:
+        - 0.0
+        - 10.0
+      - type: keypoint_progress
+        scale: 200.0
+        clip:
+        - 0.0
+        - 100.0
+      - type: joint_velocity_penalty
+        arm: 0.03
+        hand: 0.003
+      - type: goal_bonus
+        value: 1000.0
+        dwell_steps: 10
+  render:
+    groups:
+    - 0
+    - 1
+    - 2
+    skybox: true
+    shadows: true
+    shadow_light_fraction: 0.45
+    background:
+    - 0.05
+    - 0.06
+    - 0.09
+    - 1.0
+  demo:
+    nworld: 4
+    steps: 60
+    resolution:
+    - 400
+    - 300
+    random: smooth
+    grid_pad: 3
+    grid_background: 0.07
+# Sparse overrides merged over `play` when PICK_CONFIG is built.
+pick:
+  name: pick
+  scene:
+    goal:
+      pos:
+      - 0.14
+      - -0.05
+      - 0.55
+      gravcomp: 1
+      ghost_rgba:
+      - 0.15
+      - 0.95
+      - 0.55
+      - 0.35
+    with_shelf: true
+    shelf:
+      x: 0.2
+      y: 0.0
+      top: 0.788
+      half:
+      - 0.1
+      - 0.15
+      - 0.008
+      post_half:
+      - 0.012
+      - 0.012
+      - 0.386
+      post_dy:
+      - -0.12
+      - 0.12
+      post_dx: -0.12
+      post_dz: -0.402
+      rgba:
+      - 0.5
+      - 0.5
+      - 0.5
+      - 1.0
+      top_rgba:
+      - 0.62
+      - 0.47
+      - 0.34
+      - 1.0
+      friction:
+      - 0.9
+      - 0.005
+      - 0.0001
+  task:
+    type: pick
+    reward:
+      terms:
+      - type: distance
+        weight: 1.0
+      - type: lift_height
+        weight: 0.5
+        clip:
+        - 0.0
+        - 0.2
+      - type: success_bonus
+        weight: 20.0
+    pick:
+      default_tool: pipette
+      start_xy:
+      - -0.14
+      - 0.05
+      table_goal:
+      - 0.14
+      - -0.05
+      shelf_goal:
+      - 0.2
+      - 0.0
+      yaw: 1.5707963267948966
+      object_gap: 0.004
+      goal_tier: 0
+      position_tolerance: 0.025
+      rotation_tolerance: 0.9
+      dwell_steps: 10
+    stages:
+    - name: far
+      preshape: open
+    - name: near
+      preshape: open
+    - name: contact
+      preshape: open
+    - name: midgrasp
+      preshape: pinch
+    - name: grasp
+      preshape: pinch
+    challenge:
+      stage: 0
+      goal_tier: 0
+      goal_tier_max: 1
+      object_region:
+      - -0.18
+      - -0.1
+      - 0.02
+      - 0.1
+      yaw_range: 0.15
+      difficulty:
+        stage: 10.0
+        goal_tier: 14.0
+        yaw: 4.0
+      harden:
+        stage_step: -1
+        promote_goal_stage: 0
+        yaw_scale: 1.2
+        yaw_max: 1.0
+      soften:
+        stage_step: 1
+        yaw_scale: 0.85
+        yaw_min: 0.05
+    sim2real:
+      friction: 0.15
+      mass: 0.1
+      action_delay: 0
+  hand:
+    flex: 1.05
+    power:
+      left_1_thumb_CMC_FE: 0.9
+      left_thumb_CMC_AA: -0.2
+      left_thumb_MCP_FE: 0.7
+      left_thumb_MCP_AA: 0.15
+      left_thumb_IP: 1.0
+      left_5_pinky_CMC: 0.12
+    pinch:
+      left_1_thumb_CMC_FE: 0.55
+      left_thumb_CMC_AA: -0.22
+      left_thumb_MCP_FE: 0.7
+      left_thumb_MCP_AA: 0.12
+      left_thumb_IP: 1.3
+      left_2_index_MCP_FE: 0.8
+      left_index_PIP: 1.35
+      left_index_DIP: 0.9
+      left_3_middle_MCP_FE: 0.65
+      left_middle_PIP: 1.25
+      left_middle_DIP: 0.85
+      left_4_ring_MCP_FE: 0.35
+      left_ring_PIP: 0.7
+      left_5_pinky_CMC: 0.08
+      left_pinky_MCP_FE: 0.3
+      left_pinky_PIP: 0.6
+  record:
+    steps: 200
+    smoke_steps: 20
+    frame_every: 3
+    fps: 20
+    footer_height: 42
+    overlay_rgba:
+    - 8
+    - 10
+    - 14
+    - 200
+    text_rgba:
+    - 240
+    - 244
+    - 250
+    - 255
+    secondary_text_rgba:
+    - 160
+    - 172
+    - 190
+    - 255
+    text_offset:
+    - 10
+    - 8
+    text_line_height: 18
+# MJCF templates. $name placeholders are filled by render(template, **values).
+templates:
+  base.xml: |
+    <mujoco model="$model">
+      <compiler angle="radian" autolimits="true"/>
+      <option timestep="$timestep" integrator="$integrator" cone="$cone"
+              solver="$solver" iterations="$iterations" tolerance="$tolerance" impratio="$impratio"/>
+      <default>
+        <geom solref="$solref" solimp="$solimp" friction="$default_friction"/>
+      </default>
+      <asset>
+    $assets
+      </asset>
+      <worldbody>
+    $entities
+      </worldbody>
+      <actuator>$actuators</actuator>
+    </mujoco>
+  camera.xml: |
+    <camera name="$name" pos="$pos" quat="$quat" fovy="$fovy"/>
+  floor.xml: |
+    <geom name="floor" type="plane" size="3 3 0.1" material="floor"/>
+  lights.xml: |
+    <light name="key" pos="1.1 -1.0 2.0" dir="-0.42 0.42 -1" diffuse="1.05 1.03 1.0"
+           specular="0.35 0.35 0.35" castshadow="true" ambient="0.10 0.10 0.12"/>
+    <light name="fill" pos="-1.4 -1.2 1.4" dir="0.5 0.5 -0.7" diffuse="0.45 0.47 0.55"
+           specular="0.08 0.08 0.08" castshadow="false" ambient="0.07 0.07 0.09"/>
+    <light name="rim" pos="0.2 1.6 1.1" dir="0.0 -0.9 -0.6" diffuse="0.35 0.35 0.40"
+           castshadow="false" ambient="0.04 0.04 0.05"/>
+  pick_ghost_capsule.xml: |
+    <geom name="ghost_0" type="capsule" size="$radius $half_length" quat="$quat" rgba="$rgba" contype="0" conaffinity="0" group="2"/>
+  pick_ghost_mesh.xml: |
+    <geom name="ghost_$index" type="mesh" mesh="$mesh" size="$scale" rgba="$rgba" contype="0" conaffinity="0" group="2"/>
+  pick_goal.xml: |
+    <body name="goal" pos="$pos" gravcomp="$gravcomp">
+      <freejoint name="goal_free"/>$ghost</body>
+  pick_shelf.xml: |
+    <body name="shelf" pos="$pos">
+      <geom name="shelf_top" type="box" size="$half" rgba="$rgba" friction="$friction"/>
+      $posts
+    </body>
+  pick_shelf_post.xml: |
+    <geom name="shelf_post_$index" type="box" size="$half" pos="$pos" rgba="$rgba"/>
+  play_actuator.xml: |
+    <position name="act_$name" joint="$joint" kp="$kp" kv="$kv"/>
+  play_assets.xml: |
+    <texture type="skybox" builtin="gradient" rgb1="0.34 0.42 0.55" rgb2="0.05 0.06 0.09" width="96" height="384"/>
+    <texture name="grid" type="2d" builtin="checker" width="96" height="96" rgb1="0.30 0.31 0.34" rgb2="0.20 0.21 0.24"/>
+    <material name="floor" texture="grid" texrepeat="14 14" reflectance="0.04"/>
+    <material name="ghost_near" rgba="$ghost_near"/>
+    <material name="ghost_far" rgba="$ghost_far"/>
+  play_goal.xml: |
+    <body name="goal" pos="0 0 $z">$parts</body>
+  play_keypoint.xml: |
+    <geom name="ghost_kp_$index" type="sphere" size="$radius" pos="$pos" material="$material" contype="0" conaffinity="0" group="2"/>
+  play_keypoint_edge.xml: |
+    <geom name="ghost_edge_$index" type="capsule" size="$radius $half_length" pos="$pos" quat="$quat" material="$material" contype="0" conaffinity="0" group="2"/>
+  play_mesh_asset.xml: |
+    <mesh name="$name" file="$file"/>
+  play_object.xml: |
+    <body name="object" pos="0 0 $z">
+      <freejoint name="object_free"/>
+      $visual
+      $collision
+      $meshes
+      $proxies
+    </body>
+  play_robot.xml: |
+    <body name="robot" pos="$base_pos">$bodies</body>
+  play_table.xml: |
+    <body name="table" pos="0 0 $z">
+      <geom name="table_top" type="box" size="$half_size" rgba="$rgba" friction="$friction"/>
+    </body>
+  play_tool_collision.xml: |
+    <geom name="handle_box_phys" type="box" size="$handle_box" group="3"/>
+    <geom name="handle_cyl_phys" type="cylinder" size="$handle_cyl" quat="$cylinder_quat" group="3"/>
+    <geom name="head_box_phys" type="box" size="$head_box" pos="$head_pos 0 0" group="3"/>
+    <geom name="head_cyl_phys" type="cylinder" size="$head_cyl" quat="$cylinder_quat" pos="$head_cyl_pos 0 0" group="3"/>
+    <geom name="bulb_cyl_phys" type="cylinder" size="$bulb_cyl" quat="$cylinder_quat" pos="$bulb_pos 0 0" group="3"/>
+  play_tool_mesh.xml: |
+    <geom name="mesh${index}_vis" type="mesh" mesh="$name" size="$scale" rgba="$rgba" contype="0" conaffinity="0" group="2"/>
+  play_tool_proxy.xml: |
+    <geom name="proxy${index}_phys" type="cylinder" size="$radius $half_length" quat="$cylinder_quat" pos="$pos 0 0" group="3"/>
+  play_tool_visual.xml: |
+    <geom name="handle_box_vis" type="box" size="$handle_box" rgba="$handle_rgba" contype="0" conaffinity="0" group="2"/>
+    <geom name="handle_cyl_vis" type="cylinder" size="$handle_cyl" quat="$cylinder_quat" rgba="$handle_rgba" contype="0" conaffinity="0" group="2"/>
+    <geom name="head_box_vis" type="box" size="$head_box" pos="$head_pos 0 0" rgba="$head_rgba" contype="0" conaffinity="0" group="2"/>
+    <geom name="head_cyl_vis" type="cylinder" size="$head_cyl" quat="$cylinder_quat" pos="$head_cyl_pos 0 0" rgba="$head_rgba" contype="0" conaffinity="0" group="2"/>
+    <geom name="bulb_cyl_vis" type="cylinder" size="$bulb_cyl" quat="$cylinder_quat" pos="$bulb_pos 0 0" rgba="$bulb_rgba" contype="0" conaffinity="0" group="2"/>

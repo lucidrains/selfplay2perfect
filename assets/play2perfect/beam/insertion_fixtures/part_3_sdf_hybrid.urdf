@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="fixture_beam_3x_part_3_sdf_hybrid">
+  <link name="plate">
+    <visual>
+      <origin xyz="-0.000000 0.022338 0.019050" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <box size="0.146250 0.008665 0.038100"/>
+      </geometry>
+      <material name="bulk"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.000000 0.022338 0.019050" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <box size="0.146250 0.008665 0.038100"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="-0.000000 -0.022337 0.019050" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <box size="0.146250 0.008665 0.038100"/>
+      </geometry>
+      <material name="bulk"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.000000 -0.022337 0.019050" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <box size="0.146250 0.008665 0.038100"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="-0.021395 -0.000000 0.019050" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <box size="0.103460 0.036010 0.038100"/>
+      </geometry>
+      <material name="bulk"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.021395 -0.000000 0.019050" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <box size="0.103460 0.036010 0.038100"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.068984 -0.000000 0.019050" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <box size="0.008281 0.036010 0.038100"/>
+      </geometry>
+      <material name="bulk"/>
+    </visual>
+    <collision>
+      <origin xyz="0.068984 -0.000000 0.019050" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <box size="0.008281 0.036010 0.038100"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="-0.047589 -0.000000 0.114300" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <box size="0.034509 0.036010 0.228600"/>
+      </geometry>
+      <material name="bulk"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.047589 -0.000000 0.114300" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <box size="0.034509 0.036010 0.228600"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="-0.047625 -0.000000 0.213360" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <box size="0.038100 0.228600 0.045720"/>
+      </geometry>
+      <material name="bulk"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.047625 -0.000000 0.213360" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <box size="0.038100 0.228600 0.045720"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="-0.000000 -0.000000 0.018998" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <mesh filename="../6/sdf_hybrid/6_hole_patch_for_part_3.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="hole"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.000000 -0.000000 0.018998" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <mesh filename="../6/sdf_hybrid/6_hole_patch_for_part_3.obj" scale="1 1 1"/>
+      </geometry>
+      <sdf resolution="256"/>
+    </collision>
+  </link>
+  <material name="bulk">
+    <color rgba="0.78 0.55 0.30 1.0"/>
+  </material>
+  <material name="hole">
+    <color rgba="0.30 0.65 0.85 1.0"/>
+  </material>
+</robot>

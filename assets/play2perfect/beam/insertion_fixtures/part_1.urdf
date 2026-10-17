@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="fixture_beam_3x_part_1">
+  <link name="root"/>
+  <material name="part_6">
+    <color rgba="0.8500 0.3000 0.3000 1.0000"/>
+  </material>
+  <link name="part_6">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../6/coacd/decomp_1.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_6"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../6/coacd/decomp_1.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../6/coacd/decomp_10.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_6"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../6/coacd/decomp_10.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../6/coacd/decomp_11.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_6"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../6/coacd/decomp_11.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../6/coacd/decomp_2.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_6"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../6/coacd/decomp_2.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../6/coacd/decomp_4.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_6"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../6/coacd/decomp_4.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../6/coacd/decomp_5.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_6"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../6/coacd/decomp_5.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../6/coacd/decomp_6.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_6"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../6/coacd/decomp_6.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../6/coacd/decomp_8.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_6"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../6/coacd/decomp_8.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../6/coacd/decomp_9.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_6"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../6/coacd/decomp_9.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="root_to_part_6" type="fixed">
+    <parent link="root"/>
+    <child link="part_6"/>
+    <origin xyz="-0.000000 -0.000000 0.018998" rpy="0.000000 0.000000 0.000000"/>
+  </joint>
+  <material name="part_2">
+    <color rgba="0.3000 0.6500 0.8500 1.0000"/>
+  </material>
+  <link name="part_2">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_0.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_2"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_0.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_1.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_2"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_1.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_10.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_2"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_10.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_11.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_2"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_11.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_12.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_2"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_12.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_13.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_2"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_13.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_14.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_2"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_14.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_15.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_2"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_15.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_2.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_2"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_2.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_3.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_2"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_3.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_4.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_2"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_4.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_5.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_2"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_5.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_6.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_2"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_6.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_7.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_2"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_7.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_8.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_2"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_8.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_9.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_2"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../2/coacd/decomp_9.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="root_to_part_2" type="fixed">
+    <parent link="root"/>
+    <child link="part_2"/>
+    <origin xyz="-0.047625 -0.000000 0.113075" rpy="0.000000 -1.570796 0.000000"/>
+  </joint>
+  <material name="part_0">
+    <color rgba="0.4000 0.7500 0.3500 1.0000"/>
+  </material>
+  <link name="part_0">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../0/coacd/decomp_0.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_0"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../0/coacd/decomp_0.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../0/coacd/decomp_1.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_0"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../0/coacd/decomp_1.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../0/coacd/decomp_2.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_0"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../0/coacd/decomp_2.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../0/coacd/decomp_3.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_0"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../0/coacd/decomp_3.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../0/coacd/decomp_4.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_0"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../0/coacd/decomp_4.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../0/coacd/decomp_5.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_0"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../0/coacd/decomp_5.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="root_to_part_0" type="fixed">
+    <parent link="root"/>
+    <child link="part_0"/>
+    <origin xyz="-0.047625 -0.000000 0.213365" rpy="1.570796 0.000000 -1.570796"/>
+  </joint>
+  <material name="part_3">
+    <color rgba="0.9000 0.7000 0.2000 1.0000"/>
+  </material>
+  <link name="part_3">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../3/coacd/decomp_0.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_3"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../3/coacd/decomp_0.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../3/coacd/decomp_1.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_3"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../3/coacd/decomp_1.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../3/coacd/decomp_10.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_3"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../3/coacd/decomp_10.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../3/coacd/decomp_11.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_3"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../3/coacd/decomp_11.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../3/coacd/decomp_12.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_3"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../3/coacd/decomp_12.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../3/coacd/decomp_2.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_3"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../3/coacd/decomp_2.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../3/coacd/decomp_3.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_3"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../3/coacd/decomp_3.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../3/coacd/decomp_4.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_3"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../3/coacd/decomp_4.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../3/coacd/decomp_5.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_3"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../3/coacd/decomp_5.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../3/coacd/decomp_6.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_3"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../3/coacd/decomp_6.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../3/coacd/decomp_7.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_3"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../3/coacd/decomp_7.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../3/coacd/decomp_8.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_3"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../3/coacd/decomp_8.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../3/coacd/decomp_9.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="part_3"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../3/coacd/decomp_9.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="root_to_part_3" type="fixed">
+    <parent link="root"/>
+    <child link="part_3"/>
+    <origin xyz="0.047625 -0.000000 0.113075" rpy="0.000000 -1.570796 0.000000"/>
+  </joint>
+</robot>

@@ -218,3 +218,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# mujoco-warp demo venv
+.venv-mjw
+out/
+.cache/
+MUJOCO_LOG.TXT

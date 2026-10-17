@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="square_table_leg4_sdf_hybrid_matchedmass">
+  <link name="base_link">
+    <inertial>
+      <!-- measured 1x: 22.75 g -->
+      <mass value="0.022750"/>
+      <origin xyz="0.005745 0.000000 -0.000001" rpy="0 0 0"/>
+      <inertia ixx="2.570880e-06" ixy="-2.009384e-10" ixz="-8.317314e-09" iyy="1.202610e-05" iyz="-2.897770e-12" izz="1.202563e-05"/>
+    </inertial>
+  </link>
+  <material name="thread">
+    <color rgba="0.95 0.55 0.10 1.0"/>
+  </material>
+  <material name="body">
+    <color rgba="0.50 0.50 0.50 1.0"/>
+  </material>
+  <link name="thread_link">
+    <visual>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <mesh filename="square_table_leg4_thread.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="thread"/>
+    </visual>
+    <collision>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <mesh filename="square_table_leg4_thread.obj" scale="1 1 1"/>
+      </geometry>
+      <sdf resolution="256"/>
+    </collision>
+  </link>
+  <joint name="base_to_thread" type="fixed">
+    <parent link="base_link"/>
+    <child link="thread_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="body_link">
+    <!-- Per-hull visual+collision pairs (12 CoACD decomp pieces). Mirrors
+         the convention in fabrica/beam_3x/*/sdf_hybrid so visualize_problems
+         renders each hull as its own colored chunk. -->
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="body_coacd/decomp_0.obj" scale="1 1 1"/></geometry><material name="body"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="body_coacd/decomp_0.obj" scale="1 1 1"/></geometry></collision>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="body_coacd/decomp_1.obj" scale="1 1 1"/></geometry><material name="body"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="body_coacd/decomp_1.obj" scale="1 1 1"/></geometry></collision>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="body_coacd/decomp_2.obj" scale="1 1 1"/></geometry><material name="body"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="body_coacd/decomp_2.obj" scale="1 1 1"/></geometry></collision>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="body_coacd/decomp_3.obj" scale="1 1 1"/></geometry><material name="body"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="body_coacd/decomp_3.obj" scale="1 1 1"/></geometry></collision>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="body_coacd/decomp_4.obj" scale="1 1 1"/></geometry><material name="body"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="body_coacd/decomp_4.obj" scale="1 1 1"/></geometry></collision>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="body_coacd/decomp_5.obj" scale="1 1 1"/></geometry><material name="body"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="body_coacd/decomp_5.obj" scale="1 1 1"/></geometry></collision>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="body_coacd/decomp_6.obj" scale="1 1 1"/></geometry><material name="body"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="body_coacd/decomp_6.obj" scale="1 1 1"/></geometry></collision>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="body_coacd/decomp_7.obj" scale="1 1 1"/></geometry><material name="body"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="body_coacd/decomp_7.obj" scale="1 1 1"/></geometry></collision>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="body_coacd/decomp_8.obj" scale="1 1 1"/></geometry><material name="body"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="body_coacd/decomp_8.obj" scale="1 1 1"/></geometry></collision>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="body_coacd/decomp_9.obj" scale="1 1 1"/></geometry><material name="body"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="body_coacd/decomp_9.obj" scale="1 1 1"/></geometry></collision>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="body_coacd/decomp_10.obj" scale="1 1 1"/></geometry><material name="body"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="body_coacd/decomp_10.obj" scale="1 1 1"/></geometry></collision>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="body_coacd/decomp_11.obj" scale="1 1 1"/></geometry><material name="body"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="body_coacd/decomp_11.obj" scale="1 1 1"/></geometry></collision>
+  </link>
+  <joint name="base_to_body" type="fixed">
+    <parent link="base_link"/>
+    <child link="body_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+</robot>

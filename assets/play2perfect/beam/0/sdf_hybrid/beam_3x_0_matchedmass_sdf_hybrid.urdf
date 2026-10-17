@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="beam_3x_0_sdf_hybrid_matchedmass">
+  <link name="base_link">
+    <inertial>
+      <!-- measured: 85.98 g -->
+      <mass value="0.085980"/>
+      <origin xyz="-0.000000 -0.000698 -0.000000" rpy="0 0 0"/>
+      <inertia ixx="2.311025e-05" ixy="-4.274376e-12" ixz="-9.955234e-11" iyy="3.401606e-04" iyz="-9.553174e-13" izz="3.414929e-04"/>
+    </inertial>
+  </link>
+  <material name="tip">
+    <color rgba="0.95 0.55 0.10 1.0"/>
+  </material>
+  <material name="body">
+    <color rgba="0.50 0.50 0.50 1.0"/>
+  </material>
+  <link name="tip_link">
+    <visual>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <mesh filename="0_tip.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="tip"/>
+    </visual>
+    <collision>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <mesh filename="0_tip.obj" scale="1 1 1"/>
+      </geometry>
+      <sdf resolution="256"/>
+    </collision>
+  </link>
+  <joint name="base_to_tip" type="fixed">
+    <parent link="base_link"/>
+    <child link="tip_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="body_link">
+    <visual>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <mesh filename="coacd/decomp_0.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="body"/>
+    </visual>
+    <collision>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <mesh filename="coacd/decomp_0.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <mesh filename="coacd/decomp_1.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="body"/>
+    </visual>
+    <collision>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <mesh filename="coacd/decomp_1.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <mesh filename="coacd/decomp_2.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="body"/>
+    </visual>
+    <collision>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <mesh filename="coacd/decomp_2.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <mesh filename="coacd/decomp_3.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="body"/>
+    </visual>
+    <collision>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <mesh filename="coacd/decomp_3.obj" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_to_body" type="fixed">
+    <parent link="base_link"/>
+    <child link="body_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+</robot>

@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!--
+  beam_3x/0 with PHYSICALLY-MATCHED mass + mesh-derived inertia tensor.
+
+  Mass: 0.08598 kg  (= 85.98 g)
+    Measured on physical 3D-printed part (Cornell lab, 2026-05-20).
+    Implied density: 309.2 kg/m^3  vs original URDF default of 1250 (solid PLA),
+    L-peg matched-mass reference of 318, and beam_3x/2 sibling of 335.2.
+
+  Inertia: trimesh from canonical mesh × (measured_mass / mesh_volume).
+
+    V_mesh         = 278.042 cm^3 (watertight)
+    CoM offset (m) = (~0, -0.000698, ~0)
+    ixx = 2.31e-05    iyy = 3.40e-04    izz = 3.41e-04   (kg.m^2)
+    off-diag terms negligible (~1e-10 or smaller)
+
+  beam_3x/1 is the mirror-image geometry with identical mass — see
+  beam_3x_1_matchedmass.urdf.
+
+  Use this URDF instead of beam_3x_0.urdf (which uses <density value=1250/>;
+  Isaac Sim's URDF importer silently ignores the <density> tag).
+-->
+<robot name="beam_3x_0_matchedmass">
+  <link name="beam_3x_0_matchedmass">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><mesh filename="0_canonical.obj" scale="1 1 1"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><mesh filename="0_canonical.obj" scale="1 1 1"/></geometry>
+    </collision>
+    <inertial>
+      <mass value="0.085980"/>
+      <origin xyz="0.000000 -0.000698 0.000000" rpy="0 0 0"/>
+      <inertia ixx="2.310990e-05" ixy="-4.274432e-12" ixz="-9.955214e-11"
+               iyy="3.401569e-04" iyz="-9.553196e-13" izz="3.414917e-04"/>
+    </inertial>
+  </link>
+</robot>

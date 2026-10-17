@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot name="square_table_leg4">
+  <link name="square_table_leg4">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><mesh filename="square_table_leg4_canonical.obj" scale="1 1 1"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><mesh filename="square_table_leg4_canonical.obj" scale="1 1 1"/></geometry>
+    </collision>
+    <inertial><density value="800.0"/></inertial>
+  </link>
+</robot>

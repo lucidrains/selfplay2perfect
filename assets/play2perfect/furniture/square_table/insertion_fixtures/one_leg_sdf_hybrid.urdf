@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="one_leg_receptive_sdf_hybrid">
+  <link name="receptive">
+    <visual>
+      <origin xyz="0.000000 0.000000 -0.013125" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <box size="0.162500 0.162501 0.005000"/>
+      </geometry>
+      <material name="bulk"/>
+    </visual>
+    <collision>
+      <origin xyz="0.000000 0.000000 -0.013125" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <box size="0.162500 0.162501 0.005000"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.000000 0.078751 0.002500" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <box size="0.162500 0.005000 0.026250"/>
+      </geometry>
+      <material name="bulk"/>
+    </visual>
+    <collision>
+      <origin xyz="0.000000 0.078751 0.002500" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <box size="0.162500 0.005000 0.026250"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.000000 -0.078751 0.002500" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <box size="0.162500 0.005000 0.026250"/>
+      </geometry>
+      <material name="bulk"/>
+    </visual>
+    <collision>
+      <origin xyz="0.000000 -0.078751 0.002500" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <box size="0.162500 0.005000 0.026250"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.078750 0.000000 0.002500" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <box size="0.005000 0.152501 0.026250"/>
+      </geometry>
+      <material name="bulk"/>
+    </visual>
+    <collision>
+      <origin xyz="0.078750 0.000000 0.002500" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <box size="0.005000 0.152501 0.026250"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="-0.078750 0.000000 0.002500" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <box size="0.005000 0.152501 0.026250"/>
+      </geometry>
+      <material name="bulk"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.078750 0.000000 0.002500" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <box size="0.005000 0.152501 0.026250"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <mesh filename="../hole_patches/sdf_hybrid/one_leg_hole_detail.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="hole_detail"/>
+    </visual>
+    <collision>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <mesh filename="../hole_patches/sdf_hybrid/one_leg_hole_detail.obj" scale="1 1 1"/>
+      </geometry>
+      <sdf resolution="256"/>
+    </collision>
+    <!-- Inactive holes (3 corners not targeted by the one_leg task). Cylinder
+         visual+collision approximating the chunk of table material around
+         each hole. Dimensions match the active-hole-detail mesh extents
+         (~32 × 32 × 27 mm → r=16 mm, length=27 mm). Active corner is
+         (-0.05625, +0.05687); the others are the mirrored XY positions.
+         z=0.002 to align with the hole-detail mesh z-center. -->
+    <visual name="hole_inact_0_v">
+      <origin xyz="0.05625 0.05687 0.002" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.016" length="0.027"/></geometry>
+      <material name="hole_detail"/>
+    </visual>
+    <collision name="hole_inact_0_c">
+      <origin xyz="0.05625 0.05687 0.002" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.016" length="0.027"/></geometry>
+    </collision>
+    <visual name="hole_inact_1_v">
+      <origin xyz="-0.05625 -0.05687 0.002" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.016" length="0.027"/></geometry>
+      <material name="hole_detail"/>
+    </visual>
+    <collision name="hole_inact_1_c">
+      <origin xyz="-0.05625 -0.05687 0.002" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.016" length="0.027"/></geometry>
+    </collision>
+    <visual name="hole_inact_2_v">
+      <origin xyz="0.05625 -0.05687 0.002" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.016" length="0.027"/></geometry>
+      <material name="hole_detail"/>
+    </visual>
+    <collision name="hole_inact_2_c">
+      <origin xyz="0.05625 -0.05687 0.002" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.016" length="0.027"/></geometry>
+    </collision>
+  </link>
+  <material name="bulk">
+    <color rgba="0.78 0.55 0.30 1.0"/>
+  </material>
+  <material name="hole_detail">
+    <color rgba="0.30 0.65 0.85 1.0"/>
+  </material>
+</robot>

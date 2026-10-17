@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!--
+  lpeg variant with PHYSICALLY-MATCHED mass + L-shape inertia tensor.
+
+  Identical geometry to lpeg.urdf (same two visuals + colliders), but:
+    - mass changed from 0.227500 kg -> 0.057800 kg
+      Real 3D-printed lpeg measured at 57.8 g (Cornell lab serial).
+      The original 0.2275 kg assumed solid PLA at ~1250 kg/m^3 instead of
+      infill PLA at ~318 kg/m^3 for this part.
+    - inertia tensor recomputed as the parallel-axis sum of the two
+      collision boxes about the L-shape's center of mass, with the
+      corrected mass. The original URDF used (m_total / 12) *
+      (L_y^2 + L_z^2, L_x^2 + L_z^2, L_x^2 + L_y^2) with only the main
+      bar's dimensions, so it modeled a straight bar and dropped the tab's
+      contribution (and the I_xy product-of-inertia entirely).
+
+  Derivation (uniform density):
+    V_A = 0.250 * 0.030 * 0.020 = 1.5e-4    m^3   (main bar)
+    V_B = 0.020 * 0.080 * 0.020 = 3.2e-5    m^3   (perpendicular tab)
+    rho  = 0.0578 / (V_A + V_B) = 317.6      kg/m^3
+    m_A  = rho * V_A = 0.04764  kg
+    m_B  = rho * V_B = 0.01016  kg
+    CoM  = (m_B * (0.115, 0.025, 0)) / m_total = (0.02022, 0.00440, 0) m
+    I_about_CoM = sum_i  R_local_i  +  m_i * (||d_i||^2 I - d_i d_i^T)
+    -> I_xx = 1.615e-05, I_yy = 3.611e-04, I_zz = 3.734e-04
+    -> I_xy = -2.408e-05 (non-zero because of the off-center tab)
+
+  Use this URDF (via PROBLEM_REGISTRY["Lpeg_matchedmass.tolXmm"]) to
+  ablation-test whether checkpoints trained on the original (4x too heavy,
+  straight-bar inertia) lpeg generalise to the physically realistic L.
+-->
+<robot name="lpeg_matchedmass">
+  <material name="peg_red">
+    <color rgba="0.8000 0.1569 0.1569 1.0"/>
+  </material>
+  <link name="lpeg_matchedmass">
+    <visual>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <geometry><box size="0.250000 0.030000 0.020000"/></geometry>
+      <material name="peg_red"/>
+    </visual>
+    <visual>
+      <origin xyz="0.115000 0.025000 0.000000" rpy="0 0 0"/>
+      <geometry><box size="0.020000 0.080000 0.020000"/></geometry>
+      <material name="peg_red"/>
+    </visual>
+    <collision>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <geometry><box size="0.250000 0.030000 0.020000"/></geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.115000 0.025000 0.000000" rpy="0 0 0"/>
+      <geometry><box size="0.020000 0.080000 0.020000"/></geometry>
+    </collision>
+    <inertial>
+      <mass value="0.057800"/>
+      <origin xyz="0.020220 0.004396 0.000000" rpy="0 0 0"/>
+      <inertia ixx="1.615e-05" ixy="-2.408e-05" ixz="0" iyy="3.611e-04" iyz="0" izz="3.734e-04"/>
+    </inertial>
+  </link>
+</robot>

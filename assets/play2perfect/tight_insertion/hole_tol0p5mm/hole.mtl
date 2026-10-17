@@ -1,0 +1,7 @@
+newmtl hole_mat
+Ka 0.2 0.2 0.2
+Kd 0.4706 0.4706 0.4706
+Ks 0.0 0.0 0.0
+d 1.0
+illum 2
+map_Kd hole_texture.png

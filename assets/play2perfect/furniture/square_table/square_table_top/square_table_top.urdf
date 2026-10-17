@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<robot name="square_top">
+    <link name="square_top">
+        <visual>
+            <geometry>
+                <mesh filename="square_table_top.obj" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="square_table_top.obj" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+</robot>

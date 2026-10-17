@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Flat-receiver variant of one_leg_sdf_hybrid. Same picture-frame table
+  (thin floor slab + 4 perimeter rim walls) as the non-flat variant,
+  but the active-corner geometry is split into two cleanly-tiling
+  meshes:
+    H1 = S − C  (one_leg_flat_H1.obj)
+      S = square box side 38.76 mm, z ∈ [-10.6, +15.6] mm centered at
+          the active hole. The +Y edge sits flush with the closest rim
+          wall's inner face.
+      C = cylinder radius 15 mm, same XY axis, z ∈ [-11.6, +15.6] mm
+          (slightly taller so the subtraction clips through).
+      H1 provides the local flat table surface around the hole, with a
+      clean cylindrical bore cutout in the middle.
+
+    Active screw hole = unchanged hole_detail mesh.
+      Conceptually C ∩ H, but in practice the full hole_detail is used:
+      PhysX handles the 1.26 mm SDF overlap with H1 in r ∈ [15, 16.26]
+      mm safely (same rigid link). The visible bore wall above is then
+      a tiny coplanar ring (z=+15.625) where the GPU may z-fight between
+      the bulk and hole_detail colors — purely aesthetic, no physics
+      effect. For 3D print we union H1 ∪ hole_detail (after
+      merge_vertices) into a single solid mesh.
+
+  The 3 inactive-corner cylinder mocks are removed.
+-->
+<robot name="one_leg_receptive_sdf_hybrid_flat">
+  <link name="receptive">
+    <!-- Thin floor slab (unchanged). -->
+    <visual>
+      <origin xyz="0.000000 0.000000 -0.013125" rpy="0.000000 0.000000 0.000000"/>
+      <geometry><box size="0.162500 0.162501 0.005000"/></geometry>
+      <material name="bulk"/>
+    </visual>
+    <collision>
+      <origin xyz="0.000000 0.000000 -0.013125" rpy="0.000000 0.000000 0.000000"/>
+      <geometry><box size="0.162500 0.162501 0.005000"/></geometry>
+    </collision>
+
+    <!-- 4 perimeter rim walls (unchanged). -->
+    <visual>
+      <origin xyz="0.000000 0.078751 0.002500" rpy="0.000000 0.000000 0.000000"/>
+      <geometry><box size="0.162500 0.005000 0.026250"/></geometry>
+      <material name="bulk"/>
+    </visual>
+    <collision>
+      <origin xyz="0.000000 0.078751 0.002500" rpy="0.000000 0.000000 0.000000"/>
+      <geometry><box size="0.162500 0.005000 0.026250"/></geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.000000 -0.078751 0.002500" rpy="0.000000 0.000000 0.000000"/>
+      <geometry><box size="0.162500 0.005000 0.026250"/></geometry>
+      <material name="bulk"/>
+    </visual>
+    <collision>
+      <origin xyz="0.000000 -0.078751 0.002500" rpy="0.000000 0.000000 0.000000"/>
+      <geometry><box size="0.162500 0.005000 0.026250"/></geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.078750 0.000000 0.002500" rpy="0.000000 0.000000 0.000000"/>
+      <geometry><box size="0.005000 0.152501 0.026250"/></geometry>
+      <material name="bulk"/>
+    </visual>
+    <collision>
+      <origin xyz="0.078750 0.000000 0.002500" rpy="0.000000 0.000000 0.000000"/>
+      <geometry><box size="0.005000 0.152501 0.026250"/></geometry>
+    </collision>
+    <visual>
+      <origin xyz="-0.078750 0.000000 0.002500" rpy="0.000000 0.000000 0.000000"/>
+      <geometry><box size="0.005000 0.152501 0.026250"/></geometry>
+      <material name="bulk"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.078750 0.000000 0.002500" rpy="0.000000 0.000000 0.000000"/>
+      <geometry><box size="0.005000 0.152501 0.026250"/></geometry>
+    </collision>
+
+    <!-- H1 = S − C: flat tabletop around the hole with cylindrical
+         bore cutout in the middle. -->
+    <visual name="H1_v">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../hole_patches/sdf_hybrid/one_leg_flat_H1.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="bulk"/>
+    </visual>
+    <collision name="H1_c">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../hole_patches/sdf_hybrid/one_leg_flat_H1.obj" scale="1 1 1"/>
+      </geometry>
+      <sdf resolution="256"/>
+    </collision>
+
+    <!-- H2 = C ∩ H: threaded screw bore (hole_detail trimmed to r ≤ 15 mm). -->
+    <visual name="H2_v">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../hole_patches/sdf_hybrid/one_leg_hole_detail.obj" scale="1 1 1"/>
+      </geometry>
+      <material name="hole_detail"/>
+    </visual>
+    <collision name="H2_c">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../hole_patches/sdf_hybrid/one_leg_hole_detail.obj" scale="1 1 1"/>
+      </geometry>
+      <sdf resolution="256"/>
+    </collision>
+  </link>
+
+  <material name="bulk">
+    <color rgba="0.78 0.55 0.30 1.0"/>
+  </material>
+  <material name="hole_detail">
+    <color rgba="0.30 0.65 0.85 1.0"/>
+  </material>
+</robot>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot name="beam_2">
+  <link name="beam_2">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><mesh filename="2_canonical.obj" scale="1 1 1"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><mesh filename="2_canonical.obj" scale="1 1 1"/></geometry>
+    </collision>
+    <inertial><density value="1250.0"/></inertial>
+  </link>
+</robot>

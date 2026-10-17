@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!--
+  beam_3x/2 with PHYSICALLY-MATCHED mass + mesh-derived inertia tensor.
+
+  Pattern: matches assets/urdf/peg_in_hole/lpeg_matchedmass/lpeg_matchedmass.urdf.
+
+  Mass: 0.06857 kg  (= 68.57 g)
+    Measured on physical 3D-printed part (Cornell lab, 2026-05-20).
+    Implied density: 335.2 kg/m^3  vs original URDF default of 1250 (solid PLA)
+    and the L-peg matched-mass reference of 318 kg/m^3.
+
+  Inertia: computed by trimesh from the canonical mesh at unit density and
+  scaled by (measured_mass / mesh_volume). Tensor is at the geometric CoM
+  (uniform-density assumption); Isaac will treat the <origin> below as the
+  CoM offset from the link frame.
+
+    V_mesh         = 204.541 cm^3 (watertight)
+    CoM offset (m) = (+0.002767, ~0, ~0)
+    ixx = 1.32e-05    iyy = 2.24e-04    izz = 2.25e-04   (kg.m^2)
+    ixy ~ 0           ixz = +9.88e-08   iyz ~ 0
+
+  Use this URDF instead of beam_3x_2.urdf (which uses <density value=1250/>;
+  Isaac Sim's URDF importer silently ignores the <density> tag and falls back
+  to its internal default, so the explicit <mass>+<inertia> below is required
+  for accurate dynamics).
+-->
+<robot name="beam_3x_2_matchedmass">
+  <link name="beam_3x_2_matchedmass">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><mesh filename="2_canonical.obj" scale="1 1 1"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><mesh filename="2_canonical.obj" scale="1 1 1"/></geometry>
+    </collision>
+    <inertial>
+      <mass value="0.068570"/>
+      <origin xyz="0.002767 0.000000 0.000034" rpy="0 0 0"/>
+      <inertia ixx="1.322114e-05" ixy="1.702667e-12" ixz="9.878826e-08"
+               iyy="2.235268e-04" iyz="-5.800965e-12" izz="2.249660e-04"/>
+    </inertial>
+  </link>
+</robot>

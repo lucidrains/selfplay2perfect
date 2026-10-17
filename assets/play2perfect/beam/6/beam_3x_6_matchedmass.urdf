@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+  beam_3x/6 with PLACEHOLDER mass — this part is always a fixture in the
+  beam_3x assembly, so its mass is dynamically irrelevant. The 0.0825 kg
+  below uses a nominal density (~320 kg/m^3, mid-range between
+  the measured /0 (309.2) and /2 (335.2) densities).
+
+  Pattern matches assets/urdf/peg_in_hole/lpeg_matchedmass/lpeg_matchedmass.urdf.
+
+    V_mesh = 257.864 cm^3 (watertight=True)
+    CoM    = (-0.000006, 0.000000, -0.000092) m
+
+  Use this URDF instead of beam_3x_6.urdf (which uses <density value=1250/>;
+  Isaac silently ignores <density>).
+-->
+<robot name="beam_3x_6_matchedmass">
+  <link name="beam_3x_6_matchedmass">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><mesh filename="6_canonical.obj" scale="1 1 1"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><mesh filename="6_canonical.obj" scale="1 1 1"/></geometry>
+    </collision>
+    <inertial>
+      <mass value="0.082500"/>
+      <origin xyz="-0.000006 0.000000 -0.000092" rpy="0 0 0"/>
+      <inertia ixx="3.142538e-05" ixy="5.776515e-11" ixz="5.489874e-10"
+               iyy="1.506141e-04" iyz="-3.673673e-13" izz="1.622453e-04"/>
+    </inertial>
+  </link>
+</robot>
